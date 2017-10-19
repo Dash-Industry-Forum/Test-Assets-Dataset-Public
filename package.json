@@ -1,0 +1,38 @@
+{
+  "name": "Test-Assets-Dataset",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "acl": "^0.4.9",
+    "bcryptjs": "~2.0.2",
+    "body-parser": "~1.13.2",
+    "bson": "^0.4.22",
+    "compression": "^1.6.2",
+    "config": "^1.21.0",
+    "debug": "~2.2.0",
+    "expect": "^1.16.0",
+    "express": "~4.13.1",
+    "express-jwt": "~3.3.0",
+    "express-unless": "*",
+    "fs": "0.0.2",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^5.0.0",
+    "lodash": "~2.4.1",
+    "mongoose": "^4.5.2",
+    "mongoose-deep-populate": "^3.0.0",
+    "mongoose-schema": "0.0.7",
+    "morgan": "~1.6.1",
+    "path-to-regexp": "^1.5.3",
+    "q": "^1.4.1",
+    "serve-favicon": "~2.3.0",
+    "swagger-mongoose": "^0.1.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^2.5.3"
+  }
+}

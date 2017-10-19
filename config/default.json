@@ -1,0 +1,18 @@
+{
+  "webConfig": {
+    "port": 3000
+  },
+  "dbConfig": {
+    "url": "localhost",
+    "host": "127.0.0.1",
+    "port": 27017,
+    "dbName": "dashif-db-test",
+    "aclPrefix": "acl_",
+    "user": "dashifadmin",
+    "pass": "test"
+  },
+  "constraints": {
+    "limit": 50,
+    "offset": 0
+  }
+}

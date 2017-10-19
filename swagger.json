@@ -1,0 +1,801 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "DASH-IF provides conformance software, a set of test vectors, and an open source reference client implementation for DASH-AVC/264. If you are considering a DASH deployment, then a DASH-AVC/264 compatible solution is the best place for you to start\n\n\n#### Disclaimer\n\n\nThese test vectors are being made available under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license. DASH-IF considers the use of these test vectors for the development of commercial DASH clients and services to be a non-commercial use under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license provided that the test vectors themselves are not distributed for commercial purposes.\n\n\n### Available Content\nIssue Reporting. If any issue is noticed in the test vectors, please file an issue report [here](https://github.com/Dash-Industry-Forum/Test-Vectors/issues) , including the test vector link and an informal description of the issue (GitHub user account required for creating issue).\n\n\nTest vectors may be downloaded as a group via WGET by recursing this top level directory: http://dash.edgesuite.net/dash264/TestCases/\n\n\n[Learn more about DASH-IF](http://www.dashif.org)\n",
+    "version": "1.0.0",
+    "title": "DASH-IF Test Vectors API",
+    "termsOfService": "TBD",
+    "contact": {
+      "name": "TBD"
+    },
+    "license": {
+      "name": "TBD",
+      "url": "TBD"
+    }
+  },
+  "host": "192.168.99.100:3000",
+  "basePath": "/v1",
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/testvectors": {
+      "get": {
+        "description": "Gets `Testvector` objects.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Testvector"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Adds a `Testvector` object to Testvectors collection. \nTBD Response data. Complete `Testvector` object or id only. \n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Testvector"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Testvector"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      }
+    },
+    "/testvectors/{testvector-id}": {
+      "parameters": [
+        {
+          "name": "testvector-id",
+          "in": "path",
+          "description": "id of Testvector object",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "description": "Gets `Testvector` object from Testvector collection by `Testvector.id`.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Testvector"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Updates `Testvector` object from Testvector collection by `Testvector.id`.\n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "applicatiom/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Testvector"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Testvector"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete `Testvector` object from Testvector collection by `Testvector.id`. Testvector can delete only `User` who created or `Admin`.\n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Testvector deleted"
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      }
+    },
+    "/testcases": {
+      "get": {
+        "description": "Gets `Testcase` objects.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Testcase"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Adds `Testcase` object to Testcases collection.\nTBD Response data. Complete `Testcase` object or id only. \n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Testcase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Testcase"
+            }
+          },
+          "500": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      }
+    },
+    "/testcases/{testcase-id}": {
+      "parameters": [
+        {
+          "name": "testcase-id",
+          "in": "path",
+          "description": "id of Testcase object",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "description": "Gets `Testcase` object from Testcase collection by `Testcase.id`.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Testcase"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Updates `Testcase` object from Testcases collection by `Testcase.id`.\n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "applicatiom/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Testcase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Testcase"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete `Testcase` object from Testcases collection by `Testcase.id`. Testcase can be delete only by user who created or user with administrator role.\n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Testcase deleted"
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      }
+    },
+    "/features": {
+      "get": {
+        "description": "Gets `Features` objects.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Feature"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Adds `Feature` object to Features collection.\nTBD Response data. Complete `Feature` object or id only. \n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Feature"
+            }
+          },
+          "500": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      }
+    },
+    "/features/{feature-id}": {
+      "parameters": [
+        {
+          "name": "feature-id",
+          "in": "path",
+          "description": "id of Feature object",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "description": "Gets `Feature` object from Feature collection by `Feature.id`.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Feature"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Updates `Feature` object from Features collection by `Feature.id`.\n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "applicatiom/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Feature"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete `Feature` object from Features collection by `Feature.id`. Feature can be delete only by user who created or user with administrator role.\n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Feature deleted"
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "description": "Gets a list of existing DASH-IF Testvector system users who can create / delete `Testvector` and `Testcase`. Only user with administrator role can obtain this list of users.\n",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful responses",
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "get": {
+        "description": "Authorize User by username and password and if User is authorized succesffully issue an authorization JWT (JSON Web Token)\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/TBD_AuthJWT"
+            }
+          },
+          "default": {
+            "description": "TBD (prop. unexpected error)",
+            "schema": {
+              "$ref": "#/definitions/TBD_ErrorModel"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Attribute": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "uiName": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "defaultValue": {
+          "type": "string"
+        },
+        "deletable": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "shownByDefault": {
+          "type": "boolean"
+        },
+        "createdby": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/User"
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "updatedAt": {
+          "type": "date"
+        }
+      }
+    },
+    "AttributeInstance": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "attribute": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/Attribute"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "companyname": {
+          "type": "string"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "updatedAt": {
+          "type": "date"
+        }
+      }
+    },
+    "Testvector": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "includeInDashjsJson" : {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string"
+        },
+        "attributeInstances": {
+          "type": "array",
+          "items": {
+            "_mongoose": {
+              "type": "objectId"
+            },
+            "$ref": "#/definitions/AttributeInstance"
+          }
+        },
+        "testcases": {
+          "type": "array",
+          "items": {
+            "_mongoose": {
+              "type": "objectId"
+            },
+            "$ref": "#/definitions/Testcase"
+          }
+        },
+        "createdby": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/User"
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "updatedAt": {
+          "type": "date"
+        }
+      }
+    },
+    "Testcase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "includeInDashjsJson" : {
+          "type": "boolean"
+        },
+        "attributeInstances": {
+          "type": "array",
+          "items": {
+            "_mongoose": {
+              "type": "objectId"
+            },
+            "$ref": "#/definitions/AttributeInstance"
+          }
+        },
+        "feature": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/Feature"
+        },
+        "createdby": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/User"
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "updatedAt": {
+          "type": "date"
+        }
+      }
+    },
+    "Feature": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "includeInDashjsJson" : {
+          "type": "boolean"
+        },
+        "featureGroup": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/FeatureGroup"
+        },
+        "attributeInstances": {
+          "type": "array",
+          "items": {
+            "_mongoose": {
+              "type": "objectId"
+            },
+            "$ref": "#/definitions/AttributeInstance"
+          }
+        },
+        "createdby": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/User"
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "updatedAt": {
+          "type": "date"
+        }
+      }
+    },
+    "FeatureGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "includeInDashjsJson" : {
+          "type": "boolean"
+        },
+        "attributeInstances": {
+          "type": "array",
+          "items": {
+            "_mongoose": {
+              "type": "objectId"
+            },
+            "$ref": "#/definitions/AttributeInstance"
+          }
+        },
+        "createdby": {
+          "_mongoose": {
+            "type": "objectId"
+          },
+          "$ref": "#/definitions/User"
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "updatedAt": {
+          "type": "date"
+        }
+      }
+    }
+  }
+}
