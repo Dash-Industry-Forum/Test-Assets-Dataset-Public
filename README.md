@@ -11,10 +11,10 @@ The DASH-IF Testvector database is a tool to allow a dynamic management of the t
 - Test vectors for the test cases.
 - Dynamic management of the attributes all the models
 
-A live demo of the tool can be found [here](http://testassets.dashif.org/) . This repository provides the server-side functionality of the tool.
+A live demo of the tool can be found [here](http://testassets.dashif.org/). This repository provides the server-side functionality of the tool.
 It is supposed to run alongside the [Test-Assets-UI](https://github.com/Dash-Industry-Forum/Test-Assets-UI-public).
 
-##Architecture
+## Architecture
 
 ![](https://github.com/Dash-Industry-Forum/Test-Assets-Dataset-Public/blob/master/doc/diagrams/dashif-test-assets-dataset-architecture.png)
 
@@ -24,7 +24,7 @@ It is supposed to run alongside the [Test-Assets-UI](https://github.com/Dash-Ind
 
 ## Installation
 
-Backend System consists of two parts
+The backend system consists of two parts
 
 1. MongoDB Database  
 2. REST API Server  
