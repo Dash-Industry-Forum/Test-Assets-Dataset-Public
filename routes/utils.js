@@ -349,9 +349,7 @@ module.exports.processTestvector = function (item) {
           current.createdAt = self.formatDate(item.createdAt);
           current.updatedAt = self.formatDate(item.updatedAt);
           item.attributeInstances.forEach(function (attrInst) {
-            if (attrInst.attribute.active) {
               current[attrInst.attribute.uiName] = attrInst.value;
-            }
           });
           current.testcase = tc.name;
           current.feature = tc.feature.name;
@@ -381,9 +379,7 @@ module.exports.processGroupedTestvector = function (item) {
   current.testvector = '<a href="#testvector/details/' + item._id + '">' + item.name + '</a>';
   current.url = '<a href=' + item.url + '>Link</a>';
   item.attributeInstances.forEach(function (attrInst) {
-    if (attrInst.attribute.active) {
       current[attrInst.attribute.uiName] = attrInst.value;
-    }
   });
   current.active = item.active;
   current.createdAt = self.formatDate(item.createdAt);
