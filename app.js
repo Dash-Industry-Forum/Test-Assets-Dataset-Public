@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var swaggerMongoose = require('swagger-mongoose');
 var jwt = require("express-jwt");
 var pathToRegexp = require('path-to-regexp');
+var cors = require('cors');
 
 // ACL. Global variable
 acl = require('acl');
@@ -62,6 +63,7 @@ mongoose.connection.once('open', function callback() {
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use(logger('dev'));
+app.use(cors());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
