@@ -9,7 +9,7 @@
     "acl": "^0.4.9",
     "bcryptjs": "~2.0.2",
     "body-parser": "^1.19.0",
-    "bson": "^0.4.22",
+    "bson": "^1.1.4",
     "compression": "^1.6.2",
     "config": "^1.21.0",
     "cors": "^2.8.4",
